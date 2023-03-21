@@ -46,7 +46,7 @@
           <td><%= applicant.state %></td>
           <td><%= applicant.country %></td>
           <td><%= applicant.pincode %></td>
-          <td><%= button_to "Edit" , edit_applicant_path(applicant) %></td>
+          <td><%= button_to "Edit" , edit_applicant_path(applicant) ,method: :get %></td>
           <td><%= button_to "Delete", applicant_path(applicant), method: :delete %></td>
         </tr>
       <% end %>

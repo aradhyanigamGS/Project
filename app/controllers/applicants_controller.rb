@@ -5,7 +5,7 @@ class ApplicantsController < ApplicationController
   end
 
   def show 
-    @applicant = Applicant.find(params[:id])
+    @applicant = Applicant.find_by(id: params[:id])
   end
 
   def new 
@@ -23,12 +23,12 @@ class ApplicantsController < ApplicationController
   end
 
   def edit 
-    @applicant = Applicant.find(params[:id])
+    @applicant = Applicant.find_by(id: params[:id])
   end
 
   def update
     # byebug
-    @applicant = Applicant.find(params[:id])
+    @applicant = Applicant.find_by(id: params[:id])
     
     if @applicant.update(applicant_params)
       redirect_to @applicant
@@ -38,7 +38,7 @@ class ApplicantsController < ApplicationController
   end
 
   def destroy
-    @applicant = Applicant.find(params[:id])
+    @applicant = Applicant.find_by(id: params[:id])
     @applicant.destroy
 
     redirect_to root_path
