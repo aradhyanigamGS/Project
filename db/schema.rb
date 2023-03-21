@@ -10,15 +10,66 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_15_122556) do
+ActiveRecord::Schema.define(version: 2023_03_20_100322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "applicants", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "contact"
+    t.integer "age"
+    t.integer "experience"
+    t.string "role"
+    t.string "skills"
+    t.string "address"
+    t.string "state"
+    t.string "country"
+    t.string "pincode"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "appliers", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_appliers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_appliers_on_reset_password_token", unique: true
+  end
+
+  create_table "candidates", force: :cascade do |t|
+    t.string "name"
+    t.string "email", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "phoneno"
+    t.integer "age"
+    t.integer "experience"
+    t.string "role"
+    t.string "skills"
+    t.string "address"
+    t.string "state"
+    t.string "country"
+    t.string "pincode"
+    t.index ["email"], name: "index_candidates_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_candidates_on_reset_password_token", unique: true
+  end
+
   create_table "registers", force: :cascade do |t|
+    t.string "name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "role"
+    t.integer "contact"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
