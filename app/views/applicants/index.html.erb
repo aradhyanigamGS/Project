@@ -1,0 +1,56 @@
+<h1> List </h1>
+
+<div class ="col-lg-l2" >
+<br>
+  <div class ="card rounded-0 mt5 mb-5">
+    <div class="card-body">
+      <h2 class = "text-center">Listing Applicants</h2>
+    </div>
+  </div>
+
+<%= button_to "New applicant", new_applicant_path,method: :get %>
+
+   <table class = "table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Age</th>
+        <th>Role</th>
+        <th>Experience</th>
+        <th>Skills</th>
+        <th>Address</th>
+        <th>State</th>
+        <th>Country</th>
+        <th>Pin</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
+      </tr> 
+    </thead>
+
+    <tbody>
+      <% @applicants.each do |applicant| %>
+        <tr>
+          <td><%= applicant.name %></td>
+          <td><%= applicant.email %></td>
+          <td><%= applicant.contact %></td>
+          <td><%= applicant.age %></td>
+
+          <td><%= applicant.role %></td>
+          <td><%= applicant.experience %></td>
+
+          <td><%= applicant.skills %></td>
+          <td><%= applicant.address %></td>
+          <td><%= applicant.state %></td>
+          <td><%= applicant.country %></td>
+          <td><%= applicant.pincode %></td>
+          <td><%= button_to "Edit" , edit_applicant_path(applicant) ,method: :get %></td>
+          <td><%= button_to "Delete", applicant_path(applicant), method: :delete %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
