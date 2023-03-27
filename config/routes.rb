@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post 'hr', to: "home#hr"
 
   resources :applicants
+  resources :interviews
 
 
 end

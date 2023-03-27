@@ -38,7 +38,8 @@
         </tr>
     </tbody>
   </table>
-<%= button_to "New applicant", new_applicant_path,method: :get %>
+  <%= button_to "New applicant", new_applicant_path,method: :get %>
+  <%= button_to "All Applicants", applicants_path ,method: :get%>
 
   <%= button_to "Edit", edit_applicant_path(@applicant) ,method: :get%>
   <%= button_to "Destroy", applicant_path(@applicant),method: :delete %>

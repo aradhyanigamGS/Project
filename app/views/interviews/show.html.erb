@@ -1,0 +1,35 @@
+<% if @interview %>
+   <table class = "table table-bordered">
+    <thead>
+      <tr>
+        <th>Register Id</th>
+        <th>Applicant Id</th>
+        <th>Round</th>
+        <th>Timing</th>
+        <th>Set By</th>
+        <th>Feedback</th>
+        <th>Status</th>
+
+      </tr> 
+    </thead>
+
+    <tbody>
+      <tr>
+          <td><%= @interview.register_id %></td>
+          <td><%= @interview.applicant_id %></td>
+          <td><%= @interview.round %></td>
+          <td><%= @interview.timing %></td>
+
+          <td><%= @interview.set_by %></td>
+          <td><%= @interview.feedback %></td>
+
+          <td><%= @interview.status %></td>
+          <td><%= button_to "Edit" , edit_interview_path(@interview) ,method: :get %></td>
+          <td><%= button_to "Delete", interview_path(@interview), method: :delete %></td>
+        </tr>
+      
+    </tbody>
+  </table>
+<%else%>
+  <h2>Oops!! Interview does Not Schedules , Try Again!.</h2>
+<%end%>
