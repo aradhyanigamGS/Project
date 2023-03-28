@@ -9,6 +9,8 @@
         <th>Set By</th>
         <th>Feedback</th>
         <th>Status</th>
+        <th>Edit</th>
+        <th>Delete</th>
 
       </tr> 
     </thead>
@@ -29,7 +31,10 @@
         </tr>
       
     </tbody>
+
   </table>
+      <%= button_to "New Interview", new_interview_path ,method: :get %>
+
 <%else%>
   <h2>Oops!! Interview does Not Schedules , Try Again!.</h2>
 <%end%>

@@ -6,7 +6,7 @@
     </div>
   </div>
 
-<%= button_to "New Interview", new_interview_path ,method: :get %>
+    <%= button_to "New Interview", new_interview_path ,method: :get %>
 
    <table class = "table table-bordered">
     <thead>
@@ -19,6 +19,8 @@
         <th>Set By</th>
         <th>Feedback</th>
         <th>Status</th>
+        <th>Edit</th>
+        <th>Delete</th>
 
       </tr> 
     </thead>
@@ -41,5 +43,6 @@
       <% end %>
     </tbody>
   </table>
+
 </div>
 

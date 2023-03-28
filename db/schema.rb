@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_20_100322) do
+ActiveRecord::Schema.define(version: 2023_03_28_121626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,13 +22,13 @@ ActiveRecord::Schema.define(version: 2023_03_20_100322) do
     t.integer "age"
     t.integer "experience"
     t.string "role"
-    t.string "skills"
     t.string "address"
     t.string "state"
     t.string "country"
     t.string "pincode"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "skills", default: [], array: true
   end
 
   create_table "appliers", force: :cascade do |t|
@@ -64,6 +64,20 @@ ActiveRecord::Schema.define(version: 2023_03_20_100322) do
     t.index ["reset_password_token"], name: "index_candidates_on_reset_password_token", unique: true
   end
 
+  create_table "interviews", force: :cascade do |t|
+    t.bigint "register_id", null: false
+    t.bigint "applicant_id", null: false
+    t.string "round"
+    t.string "timing"
+    t.integer "set_by"
+    t.text "feedback"
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["applicant_id"], name: "index_interviews_on_applicant_id"
+    t.index ["register_id"], name: "index_interviews_on_register_id"
+  end
+
   create_table "registers", force: :cascade do |t|
     t.string "name"
     t.string "email", default: "", null: false
@@ -77,6 +91,12 @@ ActiveRecord::Schema.define(version: 2023_03_20_100322) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_registers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_registers_on_reset_password_token", unique: true
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

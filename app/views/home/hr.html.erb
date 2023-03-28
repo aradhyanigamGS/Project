@@ -1,8 +1,21 @@
 
-<h1>HR Section</h1>
 
-<%= link_to 'Applicants List', applicants_path %>|
+<p align: "right">
+      <br/>
+      <br/>
+      
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#sidebarMenu"
+        aria-controls="sidebarMenu"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1>HR Section</h1>
 
-<%= link_to 'Add Applicant', new_applicant_path%> |
 
-<%= link_to 'Schedule Interview', new_interview_path , method: :get%>
+<%=render "shared/sidebar" %>

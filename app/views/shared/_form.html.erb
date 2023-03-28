@@ -31,8 +31,11 @@
   </div>
 
   <div>
-    <%= form.label :skills %><br>
-    <%= form.text_field :skills %>
+      <%#= form.label :skills %><br>
+    <% Applicant::SKILLS.each do |skill| %>
+      <%= form.check_box :skills, {multiple: true} , skill,nil %>
+      <%= form.label skill %>
+    <% end %>
   </div>
 
   <div>
