@@ -1,4 +1,6 @@
 class InterviewsController < ApplicationController
+  before_action :authenticate_register! 
+
   before_action :interview_available, only: [:show ,:edit , :update ,:destroy]
   
   def index
