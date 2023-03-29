@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   devise_for :registers
+
   root to: "home#index"
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  get 'hr',to: "home#hr"  #to get the 
+  post 'hr', to: "home#hr"
+
+  resources :applicants
+  resources :interviews
+
+
 end

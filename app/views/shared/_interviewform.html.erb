@@ -1,0 +1,42 @@
+<%= form_with model: @interview do |form| %>
+  <div>
+    <%= form.label :applicant_Id %><br>
+    <%= form.text_field :applicant_id %>
+  </div>
+
+  <div>
+    <%= form.label :register_Id %><br>
+    <%= form.number_field :register_id %>
+  </div>
+
+  <div>
+    <%= form.label :round %><br>
+    <%= form.text_field :round %>
+  </div>
+
+  <div>
+    <%= form.label :timing %><br>
+    <%= form.text_field :timing %>
+  </div>
+
+  <div><br>
+    <strong>Enter your ID</strong>
+  <br>
+    <%= form.label :set_by ,placeholder: "Enter your Id" %><br>
+    <%= form.number_field :set_by %>
+  </div>
+  
+  <div>
+    <%= form.label :feedback %><br>
+    <%= form.text_field :feedback %>
+  </div>
+
+  <div>
+    <%= form.label :status %><br>
+    <%= form.text_field :status %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

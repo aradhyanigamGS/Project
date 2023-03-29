@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+   <%=link_to "HR-Interview-Management", root_path, class: "navbar-brand"%>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+
+      <% if not register_signed_in? %>
+      <li class="nav-item">
+        <%=link_to "Log In",new_register_session_path, class: "navbar-brand"%>
+      </li>
+
+      <li class="nav-item">
+        <%=link_to "Sign Up",new_register_registration_path, class: "navbar-brand"%>
+      </li>
+      
+      <% end %>
+      
+      <% if register_signed_in? %>
+        <li class="nav-item">
+          <%=link_to "Logout",destroy_register_session_path,method: :delete, class: "navbar-brand"%>
+        </li>
+      <%end%>
+      
+
+  </div>
+</nav>

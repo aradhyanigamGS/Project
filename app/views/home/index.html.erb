@@ -1,10 +1,20 @@
+<h1>Welcome to HR Interview Management</h1>
 <p class="navbar-text float-right">
     <% if register_signed_in? %>
+      
       Welcome To The HR Interview Management <strong><%= current_register.email %></strong>.
       <%= link_to "Edit profile", edit_register_registration_path, class: "navbar-link" %> |
       <%= link_to "Logout", destroy_register_session_path, method: :delete, class: "navbar-link"  %>
+      
+      <% if current_register.role  == "HR" %>
+     
+        <h3> Visit on HR dashboard <%= button_to 'Dashboard', 'hr' %> <h3>
+      <% else %> 
+        <h3> Visit on Interviewer dashboard <%= button_to 'Dashboard', 'Interviewer' %> <h3>
+      <% end %> 
+
     <% else %>
       <%= link_to "Sign up", new_register_registration_path, class: "navbar-link"  %> |
       <%= link_to "Login", new_register_session_path, class: "navbar-link"  %>
     <% end %>
-    </p>
+</p>
