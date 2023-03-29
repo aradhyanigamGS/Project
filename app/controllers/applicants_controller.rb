@@ -63,11 +63,10 @@ class ApplicantsController < ApplicationController
     end
 
     def applicant_available
-      if Applicant.find_by(id: params[:id]).nil?
+      @applicant = Applicant.find_by(id: params[:id])
+      if @applicant.nil?
         redirect_to applicants_path
-        flash[:notice] = "Item does not exist"
-      else
-        @applicant = Applicant.find_by(id: params[:id])
+        flash[:alert] = "Item does not exist"
       end
     end
 
